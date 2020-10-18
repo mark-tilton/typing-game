@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+    game:
+        tty: true # Really not sure what this does
+        build: ./game
+        ports: 
+            - '3000:3000'
+        volumes:
+            - './game:/app'
