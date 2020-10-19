@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 
 services:
     game:
@@ -8,3 +8,21 @@ services:
             - '3000:3000'
         volumes:
             - './game:/app'
+
+    mongo:
+        image: 'mongo:latest'
+        restart: always
+        env_file: 
+            - '.mongoenv'
+        volumes:
+            - 'mongo:/data/db'
+
+    mongo-express:
+        image: 'mongo-express:latest'
+        restart: always
+        ports:
+            - 8081:8081
+        env_file: '.mongoexpressenv'
+
+volumes:
+    mongo: {}
