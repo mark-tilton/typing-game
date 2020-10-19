@@ -1,11 +1,11 @@
 ## How to run with docker
 1. Create two files, `.mongoenv` and `.mongoexpressenv` in the root directory.
-    1. Add the following to `.mongoenv`: 
+    * Add the following to `.mongoenv`: 
     ```
     MONGO_INITDB_ROOT_USERNAME: root
     MONGO_INITDB_ROOT_PASSWORD: example
     ```
-    1. Add the following to `.mongoexpressenv`:
+    * Add the following to `.mongoexpressenv`:
     ```
     ME_CONFIG_MONGODB_ADMINUSERNAME: root
     ME_CONFIG_MONGODB_ADMINPASSWORD: example
