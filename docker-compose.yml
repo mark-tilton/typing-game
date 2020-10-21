@@ -9,6 +9,12 @@ services:
         volumes:
             - './game:/app'
 
+    populate-db:
+        build: ./populate-db
+        command: tail -F anything # Keeps the container open so we can bash into it.
+        volumes:
+            - './populate-db:/app'
+
     mongo:
         image: 'mongo:latest'
         restart: always
