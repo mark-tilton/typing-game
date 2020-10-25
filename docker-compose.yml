@@ -1,17 +1,24 @@
 version: '3.8'
 
 services:
+
     game:
         tty: true # Really not sure what this does
         build: ./game
         ports: 
-            - '3000:3000'
+            - 3000:3000
         volumes:
             - './game:/app'
 
     populate-db:
         build: ./populate-db
-        command: tail -F anything # Keeps the container open so we can bash into it.
+        depends_on:
+            - 'mongo'
+        # command: tail -F anything # Keeps the container open so we can bash into it.
+        env_file:
+            - '.flaskenv'
+        ports:
+            - 5000:5000
         volumes:
             - './populate-db:/app'
 
